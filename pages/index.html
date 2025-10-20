@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Samyra Mangan Mben</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </head>
+  <body class="bg-zinc-950 text-gray-300 min-h-screen">
+    <header class="p-6">
+      <span class="text-4xl text-white">Portfolio.</span>
+      <nav class="bg-yellow-600 text-center p-4 mt-6">
+        <a href="#index.html" class="text-black font-extrabold mx-2 hover:opacity-80">About</a>
+        <a href="projects.html" class="text-black font-extrabold mx-2 hover:opacity-80">Projects</a>
+        <a href="education.html" class="text-black font-extrabold mx-2 hover:opacity-80">Education</a>
+        <a href="#" class="text-black font-extrabold mx-2 hover:opacity-80">Download Resume</a>
+        <a href="#contact" class="text-black font-extrabold mx-2 hover:opacity-80">Contact</a>
+      </nav>
+      <nav class="flex flex-col gap-1 fixed right-6 top-6">
+        <a href="https://www.linkedin.com/in/samyra-mangan-mben/" class="text-gray-300 hover:text-white"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/Flamingeas" class="text-gray-300 hover:text-white"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/poemhotline/" class="text-gray-300 hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+        <a href="contact.html" class="text-gray-300 hover:text-white"><i class="fa-solid fa-envelope"></i></a>
+      </nav>
+    </header>
+
+    <main class="flex flex-col border-2 border-dotted border-gray-600 mx-6 my-12 p-6">
+      <section class="item" id="about">
+        <div>
+          <a href="#" class="inline-block">
+            <img src="IMG_0118.jpg" alt="Samyra" class="w-36 h-40 rounded-full">
+          </a>
+          <h1 id="typewriter" class="text-3xl font-bold mt-6 mb-4">Hi, nice to meet you.</h1>
+          <h2 id="typewriter2" class="text-2xl font-semibold mb-6">Welcome to this immersive experience...</h2>
+          <p class="leading-relaxed">
+            My name is Samyra Mangan Mben. For almost a decade, I published
+            (short) novels online.<br><br>It might be hard to believe it... But I've
+            always dreamed of becoming a best-selling author !<br><br>Now, I write lines of code, to make my thoughts come to life.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 mt-auto">
+      <i class="fa-solid fa-copyright"></i> EPITECH 2025. All Rights Reserved.
+    </footer>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        typeWriter("typewriter", 50);
+        setTimeout(() => typeWriter("typewriter2", 50), 1500);
+      });
+
+      function typeWriter(elementId, speed) {
+        let i = 0;
+        let element = document.getElementById(elementId);
+        let txt = element.innerHTML;
+        element.innerHTML = "";
+        
+        function type() {
+          if (i < txt.length) {
+            element.innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+        type();
+      }
+    </script>
+  </body>
+</html>
