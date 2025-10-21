@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Samyra Mangan Mben</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   </head>
-  <body class="bg-zinc-950 text-gray-300 min-h-screen">
+  <body class="bg-gradient-from-b bg-gradient-to-r from-black to-gray-800 shadow-md text-gray-300 min-h-screen">
     <header class="p-6">
-      <span class="text-4xl text-white">Portfolio.</span>
-      <nav class="bg-yellow-600 text-center p-4 mt-6">
-        <a href="#index.html" class="text-black font-extrabold mx-2 hover:opacity-80">About</a>
-        <a href="projects.html" class="text-black font-extrabold mx-2 hover:opacity-80">Projects</a>
-        <a href="education.html" class="text-black font-extrabold mx-2 hover:opacity-80">Education</a>
-        <a href="#" class="text-black font-extrabold mx-2 hover:opacity-80">Download Resume</a>
-        <a href="#contact" class="text-black font-extrabold mx-2 hover:opacity-80">Contact</a>
+      <span class="text-4xl text-white tracking-wider">Portfolio.</span>
+      <nav class="bg-yellow-600 text-center p-4 m-6 tracking-wide">
+        <a href="#index.html" class="text-black font-bold mx-2 hover:opacity-80">About</a>
+        <a href="projects.html" class="text-black font-bold mx-2 hover:opacity-80">Projects</a>
+        <a href="education.html" class="text-black font-bold mx-2 hover:opacity-80">Education</a>
+        <a href="#" class="text-black font-bold mx-2 hover:opacity-80">Download Resume</a>
+        <a href="#contact" class="text-black font-bold mx-2 hover:opacity-80">Contact</a>
       </nav>
       <nav class="flex flex-col gap-1 fixed right-6 top-6">
         <a href="https://www.linkedin.com/in/samyra-mangan-mben/" class="text-gray-300 hover:text-white"><i class="fa-brands fa-linkedin"></i></a>
@@ -25,11 +25,11 @@
       </nav>
     </header>
 
-    <main class="flex flex-col border-2 border-dotted border-gray-600 mx-6 my-12 p-6">
-      <section class="item" id="about">
+    <main class="flex flex-col lg:flex-row border-2 border-dotted border-gray-600 mx-12 my-12 p-10">
+      <section class="flex-1" id="about">
         <div>
           <a href="#" class="inline-block">
-            <img src="IMG_0118.jpg" alt="Samyra" class="w-36 h-40 rounded-full">
+            <img src="IMG_0118.jpg" alt="Samyra" class="w-36 h-40 rounded-full object-cover bg-gray-800">
           </a>
           <h1 id="typewriter" class="text-3xl font-bold mt-6 mb-4">Hi, nice to meet you.</h1>
           <h2 id="typewriter2" class="text-2xl font-semibold mb-6">Welcome to this immersive experience...</h2>
@@ -40,6 +40,55 @@
           </p>
         </div>
       </section>
+
+      <div id="card" class="lg:w-80 border-2 border-gray-600 rounded-lg p-6 bg-zinc-900">
+        <h2 class="text-2xl font-bold mb-6 p-2 border border-2 text-center ">Employer Card</h2>
+
+          <div id="soft-skills" class="p-2 mb-6 border border-2">
+            <h3 class="text-xl font-semibold mb-3 text-yellow-600">Soft Skills</h3>
+              <ul class="space-y-2 text-sm square">
+                <li>Communication <i class="fa fa-square-check"></i></li>
+                <li>Team work <i class="fa fa-square-check"></i></li>
+                <li>Problem solving <i class="fa fa-square-check"></i></li>
+              </ul>
+          </div>
+
+          <div id="hard-skills" class="border border-2 mb-6 p-2">
+            <h3 class="text-xl font-semibold mb-3 text-yellow-600 space-x">Hard Skills</h3>
+              <div class="mb-4">
+                <h4 class="text-sm font-extrabold text-gray-400 mb-2">Languages</h4>
+                <ul class="space-y-2 text-sm">
+                  <li><i class="fa-brands fa-html5 text-orange-500"></i> HTML/CSS</li>
+                  <li><i class="fa-brands fa-js text-yellow-400"></i> JavaScript</li>
+                  <li><i class="fa-brands fa-python text-blue-400"></i> Python</li>
+                  <li><i class="fa-brands fa-php text-indigo-400"></i> PHP</li>
+                </ul>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="text-sm font-extrabold text-gray-400 mb-2">Frameworks & Tools</h4>
+                <ul class="space-y-2 text-sm">
+                  <li><i class="fa-brands fa-node text-green-500"></i> Node.js</li>
+                  <li><i class="fa-solid fa-wind text-cyan-300"></i> Tailwind CSS</li>
+                </ul>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="text-sm font-extrabold text-gray-400 mb-2">Version Control</h4>
+                <ul class="space-y-2 text-sm">
+                  <li><i class="fa-brands fa-git-alt text-orange-600"></i> Git</li>
+                  <li><i class="fa-solid fa-terminal text-gray-400"></i> Shell/Bash</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="text-sm font-extrabold text-gray-400 mb-2">Databases</h4>
+                <ul class="space-y-2 text-sm">
+                  <li><i class="fa-solid fa-database text-blue-500"></i> MySQL</li>
+                </ul>
+            </div>
+          </div>
+      </div>
     </main>
 
     <footer class="text-center p-6 mt-auto">
