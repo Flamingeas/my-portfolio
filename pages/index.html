@@ -33,10 +33,19 @@
         box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
       }
       
-      .timeline-item:hover {
+      .timeline-item:hover .timeline-content {
         transform: translateX(10px);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       }
+
+      .timeline-item.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .timeline-content {
+        transition: all 0.3s ease;
+      }
+
     </style>
     <header class="p-6">
       <span class="text-4xl text-white tracking-wider">Portfolio.</span>
@@ -100,6 +109,7 @@
                 <ul class="space-y-2 text-sm">
                   <li><i class="fa-brands fa-node text-green-500"></i> Node.js</li>
                   <li><i class="fa-solid fa-wind text-cyan-300"></i> Tailwind CSS</li>
+
                 </ul>
               </div>
 
@@ -120,70 +130,65 @@
           </div>
       </div>
     </main>
+    
     <section id="my-journey" class="mx-12 my-16 p-10 border-2 border-dotted border-gray-600">
       <h2 class="text-4xl font-bold text-white mb-12 text-center">My Journey</h2>
-        <div class="max-w-4xl mx-auto relative">
-          <div class="timeline-line"></div>
-          
-          <!-- Literature enthusiast -->
-          <div class="timeline-item relative pl-16 pb-12">
-            <div class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-purple-500 rounded-full border-4 border-gray-800 z-10"></div>
-            <div class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-purple-400 font-bold text-lg">2014 - 2022</span>
-                <i class="fa-brands fa-wattpad text-2xl text-purple-400"></i>
-                <i class="fa-brands fa-canva"></i>
-              </div>
-              <h3 class="text-2xl font-bold text-white mb-2">Online Writing on Wattpad</h3>
-              <p class="text-gray-300">Published short novels online for nearly a decade, developing storytelling skills and creative expression.</p>
+      
+      <div class="max-w-4xl mx-auto relative">
+        <div class="timeline-line"></div>
+        
+        <!-- Literature enthusiast -->
+        <div class="timeline-item relative pl-16 pb-12">
+          <div class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-purple-500 rounded-full border-4 border-gray-800 z-10"></div>
+          <div class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-purple-400 font-bold text-lg">2014 - 2022</span>
+              <i class="fa-brands fa-wattpad text-2xl text-purple-400"></i>
             </div>
+            <h3 class="text-2xl font-bold mb-2" style="color: white;">Online Writing on Wattpad</h3>
+            <p style="color: #d1d5db;">Published short novels online for nearly a decade, developing storytelling skills and creative expression. Made some coverbooks using Canva or Photoshop.</p>
           </div>
         </div>
 
         <!-- Korean studies -->
-         <div class="timeline-item relative pl-16 pb-12">
-            <div class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-purple-500 rounded-full border-4 border-gray-800 z-10"></div>
-            <div class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-purple-400 font-bold text-lg">2020 - 2023</span>
-                <i class="fa-brands fa-wattpad text-2xl text-purple-400"></i>
-                <i class="fa-brands fa-canva"></i>
-              </div>
-              <h3 class="text-2xl font-bold text-white mb-2">Online Writing on Wattpad</h3>
-              <p class="text-gray-300">Published short novels online for nearly a decade, developing storytelling skills and creative expression.</p>
+        <div class="timeline-item relative pl-16 pb-12">
+          <div class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-red-500 rounded-full border-4 border-gray-800 z-10"></div>
+          <div class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-red-400 font-bold text-lg">2020 - 2023</span>
+              <i class="fa-solid fa-language text-2xl text-red-400"></i>
             </div>
+            <h3 class="text-2xl font-bold mb-2" style="color: white;">Bachelor's Degree in Korean</h3>
+            <p style="color: #d1d5db;">University studies in Korean language and culture, developing linguistic and intercultural skills.<br> Gave some english lessons to shoolers from Elementary to High-school level (2023).</p>
           </div>
         </div>
 
         <!-- Finance -->
-         <div class="timeline-item relative pl-16 pb-12">
-            <div class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-purple-500 rounded-full border-4 border-gray-800 z-10"></div>
-            <div class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-purple-400 font-bold text-lg">Since 2024</span>
-                <i class="fa-brands fa-wattpad text-2xl text-purple-400"></i>
-                <i class="fa-brands fa-canva"></i>
-              </div>
-              <h3 class="text-2xl font-bold text-white mb-2">Online Writing on Wattpad</h3>
-              <p class="text-gray-300">Published short novels online for nearly a decade, developing storytelling skills and creative expression.</p>
+        <div class="timeline-item relative pl-16 pb-12">
+          <div class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-yellow-500 rounded-full border-4 border-gray-800 z-10"></div>
+          <div class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-yellow-400 font-bold text-lg">2024</span>
+              <i class="fa-solid fa-chart-line text-2xl text-yellow-400"></i>
             </div>
+            <h3 class="text-2xl font-bold mb-2" style="color: white;">Introduction to Derivative Finance</h3>
+            <p style="color: #d1d5db;">Explored the world of finance (equities, stock options, futures, crypto) and self-taught Python for data analysis.</p>
           </div>
         </div>
 
-        <!-- Waouh Coding seems to be fun -->
-         <div class="timeline-item relative pl-16 pb-12">
-            <div class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-purple-500 rounded-full border-4 border-gray-800 z-10"></div>
-            <div class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-purple-400 font-bold text-lg">Since December 2023</span>
-                <i class="fa-brands fa-wattpad text-2xl text-purple-400"></i>
-                <i class="fa-brands fa-canva"></i>
-              </div>
-              <h3 class="text-2xl font-bold text-white mb-2">Online Writing on Wattpad</h3>
-              <p class="text-gray-300">Published short novels online for nearly a decade, developing storytelling skills and creative expression.</p>
+        <!-- Coding -->
+        <div class="timeline-item relative pl-16 pb-12">
+          <div class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-blue-500 rounded-full border-4 border-gray-800 z-10"></div>
+          <div class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-blue-400 font-bold text-lg">Present</span>
+              <i class="fa-solid fa-graduation-cap text-2xl text-blue-400"></i>
             </div>
+            <h3 class="text-2xl font-bold mb-2" style="color: white;">EPITECH - Aspiring Developer</h3>
+            <p style="color: #d1d5db;">Started my training in software development, mastering HTML, CSS, JavaScript, Python, PHP and various full-stack technologies.<br>Actively seeking opportunities to apply my diverse skill set and continue growing as a developer. Ready to merge creativity and code !</p>
           </div>
         </div>
+      </div>
     </section>
 
     <footer class="text-center p-6 mt-auto">
@@ -196,6 +201,27 @@
         setTimeout(() => typeWriter("typewriter2", 50), 1500);
       });
 
+       // timeline animation
+        const observerOptions = {
+          threshold: 0.2,
+          rootMargin: "0px 0px -100px 0px"
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add('visible');
+              }, index * 200);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+        
+        document.querySelectorAll('.timeline-item').forEach(item => {
+          observer.observe(item);
+        });
+    
       function typeWriter(elementId, speed) {
         let i = 0;
         let element = document.getElementById(elementId);
