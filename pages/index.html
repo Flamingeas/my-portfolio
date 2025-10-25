@@ -53,10 +53,28 @@
       .timeline-content {
         transition: all 0.3s ease;
       }
+
+      .hover-effect {
+        height: 100%;
+        transform: scale(1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        position: relative;
+        filter: brightness(0.85) contrast(1.1);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .hover-effect:hover {
+        transform: scale(1.05);
+        filter: brightness(1.1) contrast(1.2);
+        box-shadow: 0 20px 60px rgba(59, 130, 246, 0.5),
+                    0 0 0 2px rgba(59, 130, 246, 0.3);
+      }
     </style>
     <header class="p-6">
       <span class="text-4xl text-white tracking-wider">Portfolio.</span>
-      <nav class="bg-blue-800 text-center p-4 m-6 tracking-wide">
+      <nav class="bg-yellow-600 text-center p-4 m-6 tracking-wide">
         <a
           href="#index.html"
           class="text-black font-bold mx-2 hover:opacity-80"
@@ -104,10 +122,12 @@
       </nav>
     </header>
 
-    <main
-      class="flex flex-col lg:flex-row border-2 border-dotted border-gray-600 mx-12 my-12 p-10"
-    >
-      <section class="flex-1" id="about">
+    <main class="flex flex-col lg:flex-row gap-20 mx-12 my-12 p-10">
+      <!-- <section class="flex-1" id="about"> -->
+      <section
+        id="about"
+        class="hover-effect bg-blue-800 lg:w-80 border border-gray-600 rounded-lg p-6"
+      >
         <div>
           <a href="#" class="inline-block">
             <img
@@ -138,7 +158,7 @@
 
       <div
         id="card"
-        class="mt-10 bg-blue-800 lg:w-80 border-2 border-gray-600 rounded-lg p-6"
+        class="hover-effect mt-10 bg-yellow-600 lg:w-80 border-2 border-gray-600 rounded-lg p-6"
       >
         <h2
           class="text-2xl font-bold mb-6 p-2 border border-2 text-center bg-gray-200 text-black"
@@ -235,10 +255,7 @@
       </div>
     </main>
 
-    <section
-      id="my-journey"
-      class="mx-12 my-16 p-10 border-2 border-dotted border-gray-600"
-    >
+    <section id="my-journey" class="mx-12 my-16 p-10">
       <h2 class="text-4xl font-bold text-white mb-12 text-center">
         My Journey
       </h2>
@@ -334,11 +351,132 @@
             <p style="color: #d1d5db;">
               Started my training in software development, mastering HTML, CSS,
               JavaScript, Python, PHP and various full-stack technologies.
+              Member of Evolutek, a robotic club.
               <br />
               Actively seeking opportunities to apply my diverse skill set and
               continue growing as a developer. Ready to merge creativity and
               code !
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="mx-12 my-16 p-10 border-gray-600">
+      <h2 class="text-4xl font-bold text-white mb-8 text-center">
+        My Projects Library
+      </h2>
+
+      <!-- Filters -->
+      <div class="flex flex-wrap justify-center gap-3 mb-10">
+        <button
+          class="filter-btn active px-6 py-2 rounded-full bg-orange-600 text-white font-semibold hover:bg-orange-700 transition"
+          data-filter="all"
+        >
+          All Stories
+        </button>
+        <button
+          class="filter-btn px-6 py-2 rounded-full bg-gray-700 text-white font-semibold hover:bg-yellow-600 transition"
+          data-filter="web"
+        >
+          Web Dev
+        </button>
+        <button
+          class="filter-btn px-6 py-2 rounded-full bg-gray-700 text-white font-semibold hover:bg-yellow-600 transition"
+          data-filter="python"
+        >
+          Python
+        </button>
+        <button
+          class="filter-btn px-6 py-2 rounded-full bg-gray-700 text-white font-semibold hover:bg-yellow-600 transition"
+          data-filter="finance"
+        >
+          Data analysis
+        </button>
+        <button
+          class="filter-btn px-6 py-2 rounded-full bg-gray-700 text-white font-semibold hover:bg-yellow-00 transition"
+          data-filter="creative"
+        >
+          Creative
+        </button>
+      </div>
+
+      <!-- Wattpad Suggestion -->
+      <div
+        class="books-grid max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        <!-- Book 1 -->
+        <div class="book-item" data-category="web">
+          <div
+            class="hover-effect bg-gray-800 rounded-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
+          >
+            <div class="book-cover-wrapper">
+              <div
+                class="book-cover bg-gradient-to-br from-orange-500 via-pink-500 to-purple-600 relative"
+              >
+                <div
+                  class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center"
+                ></div>
+                <div
+                  class="reads-badge absolute top-3 right-3 bg-black bg-opacity-60 px-3 py-1 rounded-full"
+                >
+                </div>
+              </div>
+            </div>
+            <div class="book-info p-5">
+              <div class="flex items-start justify-between mb-3">
+                <div class="flex-1">
+                  <h4 class="text-xl font-bold text-white mb-1">
+                    Portfolio Chronicles
+                  </h4>
+                  <p class="text-gray-400 text-sm mb-2">
+                    <i class="fa-solid fa-user"></i>
+                    Samyra Mangan Mben
+                  </p>
+                </div>
+                <div class="text-right">
+                  <div class="text-yellow-400 mb-1">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                  </div>
+                  <p class="text-gray-400 text-xs">4.8</p>
+                </div>
+              </div>
+              <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                A responsive personal portfolio, combining my passion for
+                writing and coding. It features an interactive timeline, a
+                Wattpad-inspired book presentation, an a typewriter effect for
+                titles. Built with modern web technologies to showcase projects
+                throughout an immersive experience.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="tag">#HTML</span>
+                <span class="tag">#CSS</span>
+                <span class="tag">#JavaScript</span>
+                <span class="tag">#Tailwind</span>
+                <span class="tag">#Responsive</span>
+              </div>
+              <div class="flex gap-2">
+                <a
+                  href="#"
+                  class="flex-1 bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-full text-center transition text-sm font-semibold"
+                >
+                  <i class="fa-solid fa-code mr-1"></i>
+                  View Code
+                </a>
+                <a
+                  href="#"
+                  class="flex-1 bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-full text-center transition text-sm font-semibold"
+                >
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>
+                  Live
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -426,7 +564,6 @@
         </div>
       </div>
     </section>
-    section
 
     <footer class="text-center p-6 mt-auto">
       <i class="fa-solid fa-copyright"></i>
