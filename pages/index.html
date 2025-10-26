@@ -17,6 +17,70 @@
     class="bg-gradient-from-b bg-gradient-to-r from-black to-gray-800 shadow-md text-gray-300 min-h-screen"
   >
     <style>
+      html, body {
+        height: 100%;
+      }
+      .nav-links {
+          flex: 1;
+          text-align: right;
+      }
+      .nav-links ul li{
+          list-style: none;
+          display: inline-block;
+          position: relative;
+          padding: 8px 12px;
+      }
+      .nav-links ul li a{
+          text-decoration: none;
+          color: #fff;
+          font-size: 18px;
+      }
+      .nav-links ul li::after{
+          content: '';
+          width: 0%;
+          height: 3px;
+          background: #f0491b;
+          display: block;
+          margin: auto;
+          transition: width 0.5s;
+      }
+      .nav-links ul li:hover::after{
+          width: 100%;
+      }
+
+      nav .fa {
+          display: none;
+      }
+
+
+      @media(max-width:768px){
+          .text-box h1 {
+              font-size: 30px;
+          }
+          .nav-links ul li{
+              display: block;
+              text-align: left;
+          }
+          .nav-links{
+              position: absolute;
+              background: #f46b27;
+              height: 100vh;
+              width: 200px;
+              right: -200px;
+              z-index: 50;
+              transition: right 1s ease;
+              margin-top: 0;
+          }
+          nav .fa{
+              display: block;
+              font-size: 30px;
+              color: #fff;
+              margin: 10px;
+              font-size: 25px;
+              cursor: pointer;
+          }
+      }
+
       .timeline-item {
         opacity: 0;
         transform: translateX(-50px);
@@ -72,42 +136,58 @@
                     0 0 0 2px rgba(59, 130, 246, 0.3);
       }
     </style>
-    <!--Menu for mobile-->
-    <button id="menuToggle" class="fixed top-6 left-6 z-100 text-white text-2xl md:hidden">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-    <div id="mobileMenu" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg md:hidden transform -translate-x-full transition-transform duration-300 ">
-      <a href="#about" class="text-white text-lg font-semibold px-6 py-3 hover:bg-gray-700 rounded-md transition">About</a>
-      <a href="#my-journey" class="text-white text-lg font-semibold px-6 py-3 hover:bg-gray-700 rounded-md transition">My Journey</a>
-      <a href="#projects" class="text-white text-lg font-semibold px-6 py-3 hover:bg-gray-700 rounded-md transition">Projects</a>
-      <a href="#" class="text-white text-lg font-semibold px-6 py-3 hover:bg-gray-700 rounded-md transition">Download Resume</a>
-      <a href="#contact" class="text-white text-lg font-semibold px-6 py-3 hover:bg-gray-700 rounded-md transition">Contact</a>
-    </div>
+
+    <!--Menu-->
+    <nav>
+      <div class="nav-links mt-10" id="nav-links">
+        <i id="hideIcons" class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+          <li>
+            <a
+              href="#about"
+              class="text-white text-lg font-semibold px-6 py-3 hover:bg-gray-700 rounded-md transition"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#my-journey"
+              class="text-white text-lg font-semibold px-6 py-3 hover:bg-gray-700 rounded-md transition"
+            >
+              My Journey
+            </a>
+          </li>
+          <li>
+            <a
+              href="#projects"
+              class="text-white text-lg font-semibold px-6 py-3 hover:bg-gray-700 rounded-md transition"
+            >
+              Projects
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.canva.com/design/DAGffzh3Kjs/v4WulXTlfNK--XeljWsbgw/view?utm_content=DAGffzh3Kjs&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h539d4af2c3"
+              class="text-white text-lg font-semibold px-6 py-3 hover:bg-gray-700 rounded-md transition"
+            >
+              Resume
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="text-white text-lg font-semibold px-6 py-3 hover:bg-gray-700 rounded-md transition"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+      <i id="hideIcons" class="fa fa-bars md:hidden" onclick="showMenu()"></i>
+    </nav>
+
     <header class="p-6">
-      <nav class="bg-yellow-600 text-center p-4 m-6 tracking-wide hidden md:flex justify-center">
-        <a
-          href="#index.html"
-          class="text-black font-bold mx-2 hover:text-white transition"
-        >
-          About
-        </a>
-        <a
-          href="#my-journey"
-          class="text-black font-bold mx-2 hover:text-white transition"
-        >
-          My Journey
-        </a>
-        <a href="#projects" class="text-black font-bold mx-2 hover:text-white transition">
-          Projects
-        </a>
-        <a href="#" class="text-black font-bold mx-2 hover:text-white transition">
-          Download Resume
-        </a>
-        <a href="#contact" class="text-black font-bold mx-2 hover:text-white transition">
-          Contact
-        </a>
-      </nav>
-    
       <nav class="flex flex-col gap-1 fixed right-6 bottom-10">
         <a
           href="https://www.linkedin.com/in/samyra-mangan-mben/"
@@ -135,24 +215,32 @@
     <section class="quote-section mt-10 mb-10">
       <div class="max-w-4xl mx-auto text-center">
         <blockquote class="relative">
-          <i class="fa-solid fa-quote-left text-4xl opacity-30 absolute -top-4 -left-1"></i>
-          <p id="typewriter" class="text-2xl md:text-3xl font-light text-white italic px-8">
+          <i
+            class="fa-solid fa-quote-left text-4xl opacity-30 absolute -top-4 -left-1"
+          ></i>
+          <p
+            id="typewriter"
+            class="text-2xl md:text-3xl font-light text-white italic px-8"
+          >
             Creativity is just connecting things.
           </p>
-          <i class="fa-solid fa-quote-right text-4xl opacity-30 absolute -bottom-4 -right-1"></i>
+          <i
+            class="fa-solid fa-quote-right text-4xl opacity-30 absolute -bottom-4 -right-1"
+          ></i>
           <footer class="mt-4 text-gray-400 text-lg">
-            ― <span class="text-orange-400 font-semibold">Steve Jobs</span>
+            ―
+            <span class="text-orange-400 font-semibold">Steve Jobs</span>
           </footer>
         </blockquote>
       </div>
     </section>
-    <main class="flex flex-col lg:flex-row gap-20 mx-12 my-12 p-10">
-
+    <main class="flex flex-col gap-10 mx-12 my-12 p-10">
       <!-- <section class="flex-1" id="about"> -->
       <section
         id="about"
         class="hover-effect bg-blue-800 w-full md:w-full border border-gray-600 rounded-lg p-6"
-      >        <div>
+      >
+        <div>
           <a href="#" class="inline-block">
             <img
               src="IMG_0118.jpg"
@@ -179,212 +267,217 @@
           </p>
         </div>
       </section>
-
-      <div
-        id="card"
-        class="hover-effect mt-10 bg-yellow-600 lg:w-80 border-2 border-gray-600 rounded-lg p-6"
-      >
-        <h2
-          class="text-2xl font-bold mb-6 p-2 border border-2 text-center bg-gray-200 text-black"
+      <div class ="flex flex-col lg:flex-row gap-10 w-full">
+        <div
+          id="card"
+          class="hover-effect mt-10 bg-yellow-600 lg:w-80 border-2 border-gray-600 rounded-lg p-6"
         >
-          Employer Card
-        </h2>
+          <h2
+            class="text-2xl font-bold mb-6 p-2 border border-2 text-center bg-gray-200 text-black"
+          >
+            Employer Card
+          </h2>
 
-        <div id="soft-skills" class="p-2 mb-6 border border-2">
-          <h3 class="text-xl font-semibold mb-3 text-black">Soft Skills</h3>
-          <ul class="space-y-2 text-sm square">
-            <li>
-              Communication
-              <i class="fa fa-square-check"></i>
-            </li>
-            <li>
-              Team work
-              <i class="fa fa-square-check"></i>
-            </li>
-            <li>
-              Problem solving
-              <i class="fa fa-square-check"></i>
-            </li>
-          </ul>
+          <div id="soft-skills" class="p-2 mb-6 border border-2">
+            <h3 class="text-xl font-semibold mb-3 text-black">Soft Skills</h3>
+            <ul class="space-y-2 text-sm square">
+              <li>
+                Communication
+                <i class="fa fa-square-check"></i>
+              </li>
+              <li>
+                Team work
+                <i class="fa fa-square-check"></i>
+              </li>
+              <li>
+                Problem solving
+                <i class="fa fa-square-check"></i>
+              </li>
+            </ul>
+          </div>
+
+          <div id="hard-skills" class="border border-2 mb-6 p-2">
+            <h3 class="text-xl font-semibold mb-3 text-black space-x">
+              Hard Skills
+            </h3>
+            <div class="mb-4">
+              <h4 class="text-sm font-extrabold text-white mb-2">Languages</h4>
+              <ul class="space-y-2 text-sm">
+                <li>
+                  <i class="fa-brands fa-html5 text-orange-500"></i>
+                  HTML/CSS
+                </li>
+                <li>
+                  <i class="fa-brands fa-js text-yellow-400"></i>
+                  JavaScript
+                </li>
+                <li>
+                  <i class="fa-brands fa-python text-blue-400"></i>
+                  Python
+                </li>
+                <li>
+                  <i class="fa-brands fa-php text-indigo-400"></i>
+                  PHP
+                </li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h4 class="text-sm font-extrabold text-white mb-2">
+                Frameworks & Tools
+              </h4>
+              <ul class="space-y-2 text-sm">
+                <li>
+                  <i class="fa-brands fa-node text-green-500"></i>
+                  Node.js
+                </li>
+                <li>
+                  <i class="fa-solid fa-wind text-cyan-300"></i>
+                  Tailwind CSS
+                </li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h4 class="text-sm font-extrabold text-white mb-2">
+                Version Control
+              </h4>
+              <ul class="space-y-2 text-sm">
+                <li>
+                  <i class="fa-brands fa-git-alt text-orange-600"></i>
+                  Git
+                </li>
+                <li>
+                  <i class="fa-solid fa-terminal text-gray-400"></i>
+                  Shell/Bash
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="text-sm font-extrabold text-white mb-2">Databases</h4>
+              <ul class="space-y-2 text-sm">
+                <li>
+                  <i class="fa-solid fa-database text-blue-500"></i>
+                  MySQL
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <div id="hard-skills" class="border border-2 mb-6 p-2">
-          <h3 class="text-xl font-semibold mb-3 text-black space-x">
-            Hard Skills
-          </h3>
-          <div class="mb-4">
-            <h4 class="text-sm font-extrabold text-white mb-2">Languages</h4>
-            <ul class="space-y-2 text-sm">
-              <li>
-                <i class="fa-brands fa-html5 text-orange-500"></i>
-                HTML/CSS
-              </li>
-              <li>
-                <i class="fa-brands fa-js text-yellow-400"></i>
-                JavaScript
-              </li>
-              <li>
-                <i class="fa-brands fa-python text-blue-400"></i>
-                Python
-              </li>
-              <li>
-                <i class="fa-brands fa-php text-indigo-400"></i>
-                PHP
-              </li>
-            </ul>
-          </div>
+        <section
+          id="my-journey" 
+          class="w-full lg:w-1/2 p-6 lg:p-10"
+          style="overflow-wrap: break-word; word-break: break-word; hyphens: auto;"
+        >
+          <h2 class="text-4xl font-bold text-white mb-12 text-center">
+            My Journey
+          </h2>
 
-          <div class="mb-4">
-            <h4 class="text-sm font-extrabold text-white mb-2">
-              Frameworks & Tools
-            </h4>
-            <ul class="space-y-2 text-sm">
-              <li>
-                <i class="fa-brands fa-node text-green-500"></i>
-                Node.js
-              </li>
-              <li>
-                <i class="fa-solid fa-wind text-cyan-300"></i>
-                Tailwind CSS
-              </li>
-            </ul>
-          </div>
+          <div class="max-w-4xl mx-auto relative">
+            <div class="timeline-line"></div>
 
-          <div class="mb-4">
-            <h4 class="text-sm font-extrabold text-white mb-2">
-              Version Control
-            </h4>
-            <ul class="space-y-2 text-sm">
-              <li>
-                <i class="fa-brands fa-git-alt text-orange-600"></i>
-                Git
-              </li>
-              <li>
-                <i class="fa-solid fa-terminal text-gray-400"></i>
-                Shell/Bash
-              </li>
-            </ul>
-          </div>
+            <!-- Literature enthusiast -->
+            <div class="timeline-item relative pl-16 pb-12">
+              <div
+                class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-purple-500 rounded-full border-4 border-gray-800 z-10"
+              ></div>
+              <div
+                class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600"
+              >
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-purple-400 font-bold text-lg">2014 - 2022</span>
+                  <i class="fa-brands fa-wattpad text-2xl text-purple-400"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-2" style="color: white;">
+                  Online Writing on Wattpad
+                </h3>
+                <p style="color: #d1d5db;">
+                  Published short novels online for nearly a decade, developing
+                  storytelling skills and creative expression. Made some coverbooks
+                  using Canva or Photoshop.
+                </p>
+              </div>
+            </div>
 
-          <div>
-            <h4 class="text-sm font-extrabold text-white mb-2">Databases</h4>
-            <ul class="space-y-2 text-sm">
-              <li>
-                <i class="fa-solid fa-database text-blue-500"></i>
-                MySQL
-              </li>
-            </ul>
+            <!-- Korean studies -->
+            <div class="timeline-item relative pl-16 pb-12">
+              <div
+                class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-red-500 rounded-full border-4 border-gray-800 z-10"
+              ></div>
+              <div
+                class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600"
+              >
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-red-400 font-bold text-lg">2020 - 2023</span>
+                  <i class="fa-solid fa-language text-2xl text-red-400"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-2" style="color: white;">
+                  Bachelor's Degree in Korean
+                </h3>
+                <p style="color: #d1d5db;">
+                  University studies in Korean language and culture, developing
+                  linguistic and intercultural skills.
+                  <br />
+                  Gave some english lessons to shoolers from Elementary to
+                  High-school level (2023).
+                </p>
+              </div>
+            </div>
+
+            <!-- Finance -->
+            <div class="timeline-item relative pl-16 pb-12">
+              <div
+                class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-yellow-500 rounded-full border-4 border-gray-800 z-10"
+              ></div>
+              <div
+                class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600"
+              >
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-yellow-400 font-bold text-lg">2024</span>
+                  <i class="fa-solid fa-chart-line text-2xl text-yellow-400"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-2" style="color: white;">
+                  Introduction to Derivative Finance
+                </h3>
+                <p style="color: #d1d5db;">
+                  Explored the world of finance (equities, stock options, futures,
+                  crypto) and self-taught Python for data analysis.
+                </p>
+              </div>
+            </div>
+
+            <!-- Coding -->
+            <div class="timeline-item relative pl-16 pb-12">
+              <div
+                class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-blue-500 rounded-full border-4 border-gray-800 z-10"
+              ></div>
+              <div
+                class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600"
+              >
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-blue-400 font-bold text-lg">Present</span>
+                  <i class="fa-solid fa-graduation-cap text-2xl text-blue-400"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-2" style="color: white;">
+                  EPITECH - Aspiring Developer
+                </h3>
+                <p style="color: #d1d5db;">
+                  Started my training in software development, mastering HTML, CSS,
+                  JavaScript, Python, PHP and various full-stack technologies.
+                  Member of Evolutek, a robotic club.
+                  <br />
+                  Actively seeking opportunities to apply my diverse skill set and
+                  continue growing as a developer. Ready to merge creativity and
+                  code !
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
     </main>
-
-    <section id="my-journey" class="mx-12 my-16 p-10">
-      <h2 class="text-4xl font-bold text-white mb-12 text-center">
-        My Journey
-      </h2>
-
-      <div class="max-w-4xl mx-auto relative">
-        <div class="timeline-line"></div>
-
-        <!-- Literature enthusiast -->
-        <div class="timeline-item relative pl-16 pb-12">
-          <div
-            class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-purple-500 rounded-full border-4 border-gray-800 z-10"
-          ></div>
-          <div
-            class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600"
-          >
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-purple-400 font-bold text-lg">2014 - 2022</span>
-              <i class="fa-brands fa-wattpad text-2xl text-purple-400"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-2" style="color: white;">
-              Online Writing on Wattpad
-            </h3>
-            <p style="color: #d1d5db;">
-              Published short novels online for nearly a decade, developing
-              storytelling skills and creative expression. Made some coverbooks
-              using Canva or Photoshop.
-            </p>
-          </div>
-        </div>
-
-        <!-- Korean studies -->
-        <div class="timeline-item relative pl-16 pb-12">
-          <div
-            class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-red-500 rounded-full border-4 border-gray-800 z-10"
-          ></div>
-          <div
-            class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600"
-          >
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-red-400 font-bold text-lg">2020 - 2023</span>
-              <i class="fa-solid fa-language text-2xl text-red-400"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-2" style="color: white;">
-              Bachelor's Degree in Korean
-            </h3>
-            <p style="color: #d1d5db;">
-              University studies in Korean language and culture, developing
-              linguistic and intercultural skills.
-              <br />
-              Gave some english lessons to shoolers from Elementary to
-              High-school level (2023).
-            </p>
-          </div>
-        </div>
-
-        <!-- Finance -->
-        <div class="timeline-item relative pl-16 pb-12">
-          <div
-            class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-yellow-500 rounded-full border-4 border-gray-800 z-10"
-          ></div>
-          <div
-            class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600"
-          >
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-yellow-400 font-bold text-lg">2024</span>
-              <i class="fa-solid fa-chart-line text-2xl text-yellow-400"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-2" style="color: white;">
-              Introduction to Derivative Finance
-            </h3>
-            <p style="color: #d1d5db;">
-              Explored the world of finance (equities, stock options, futures,
-              crypto) and self-taught Python for data analysis.
-            </p>
-          </div>
-        </div>
-
-        <!-- Coding -->
-        <div class="timeline-item relative pl-16 pb-12">
-          <div
-            class="timeline-dot absolute left-3 top-0 w-8 h-8 bg-blue-500 rounded-full border-4 border-gray-800 z-10"
-          ></div>
-          <div
-            class="timeline-content bg-gray-700 p-6 rounded-lg border border-gray-600"
-          >
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-blue-400 font-bold text-lg">Present</span>
-              <i class="fa-solid fa-graduation-cap text-2xl text-blue-400"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-2" style="color: white;">
-              EPITECH - Aspiring Developer
-            </h3>
-            <p style="color: #d1d5db;">
-              Started my training in software development, mastering HTML, CSS,
-              JavaScript, Python, PHP and various full-stack technologies.
-              Member of Evolutek, a robotic club.
-              <br />
-              Actively seeking opportunities to apply my diverse skill set and
-              continue growing as a developer. Ready to merge creativity and
-              code !
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Projects Section -->
     <section id="projects" class="mx-12 my-16 p-10 border-gray-600">
@@ -447,9 +540,7 @@
             <div class="book-info p-5">
               <div class="flex items-start justify-between mb-3">
                 <div class="flex-1">
-                  <h4 class="text-xl font-bold text-white mb-1">
-                    Portfolio
-                  </h4>
+                  <h4 class="text-xl font-bold text-white mb-1">Portfolio</h4>
                   <p class="text-gray-400 text-sm mb-2">
                     <i class="fa-solid fa-user"></i>
                     Samyra Mangan Mben
@@ -536,7 +627,11 @@
                 </div>
               </div>
               <p class="text-gray-300 text-sm mb-4 leading-relaxed">
-                A responsive personal web resume built with HTML and CSS, presenting my skills, education, hobbies, and contact information in a clean, interactive layout. This project showcases my ability to structure content and create a professional online presence.
+                A responsive personal web resume built with HTML and CSS,
+                presenting my skills, education, hobbies, and contact
+                information in a clean, interactive layout. This project
+                showcases my ability to structure content and create a
+                professional online presence.
               </p>
               <div class="flex flex-wrap gap-2 mb-4">
                 <span class="tag">#HTML</span>
@@ -573,7 +668,12 @@
 
       <div class="max-w-4xl mx-auto grid grid-cols lg:grid-cols gap-8">
         <div class="contact-form-wrapper">
-          <form id="contactForm" action="https://formspree.io/f/mrbobpqr" method="POST" class="space-y-5">
+          <form
+            id="contactForm"
+            action="https://formspree.io/f/mrbobpqr"
+            method="POST"
+            class="space-y-5"
+          >
             <div>
               <label for="name" class="block text-white font-semibold mb-2">
                 <i class="fa-solid fa-user text-orange-400 mr-2"></i>
@@ -698,25 +798,13 @@
         });
 
       /* menu for media 768*/
-      document.addEventListener("DOMContentLoaded", function() {
-        const menuToggle = document.getElementById("menuToggle");
-        const mobileMenu = document.getElementById("mobileMenu");
-
-        menuToggle.onclick = function() {
-          if (mobileMenu.classList.contains("hidden")) {
-            mobileMenu.classList.remove("hidden");
-            console.log("Button clicked.")
-          } else {
-            mobileMenu.classList.add("hidden");
-          }
-        };
-        const links = mobileMenu.querySelectorAll("a");
-        links.forEach(function(link) {
-          link.onclick = function() {
-            mobileMenu.classList.add("hidden");
-          };
-        });
-      });
+      var navLinks = document.getElementById("nav-links");
+      function showMenu() {
+          navLinks.style.right = "0";
+      }
+      function hideMenu() {
+          navLinks.style.right = "-200px";
+      }
     </script>
   </body>
 </html>
